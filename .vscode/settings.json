@@ -1,0 +1,17 @@
+{
+    "python.pythonPath": ".venv\\Scripts\\python.exe",
+    "cSpell.words": [
+        "facecolors",
+        "fliplr",
+        "ical",
+        "icalendar",
+        "imread",
+        "meshgrid",
+        "mplot",
+        "pygame",
+        "rstride",
+        "toolkits",
+        "VEVENT",
+        "xticks"
+    ]
+}
