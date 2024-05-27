@@ -1,6 +1,6 @@
-def read_Genome(filename):
+def read_Genome(lambda_virus.fa):
     genome = ''
-    with open(filename, 'r') as f:
+    with open(lambda_virus.fa, 'r') as f:
         for line in f:
             if not line.startswith('>'):
                 genome += line.rstrip()
