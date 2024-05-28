@@ -9,9 +9,9 @@ def count_sequence(genome, sequence):
 genome = SeqIO.read("lambda_virus.fa", "fasta").seq
 
 # Count the occurrences
-count = count_sequence(genome, "AACT")
+count = count_sequence(genome, "AGCT")
 
-print(f"The sequence 'AACT' or its reverse complement occurs {count} times in the lambda virus genome.")
+print(f"The sequence 'AGCT' or its reverse complement occurs {count} times in the lambda virus genome.")
 
 def read_genome(lambda_virus_fa):
     genome = ''
