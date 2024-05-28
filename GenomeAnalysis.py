@@ -70,6 +70,6 @@ def find_offset(genome, sequence):
 genome = SeqIO.read("lambda_virus.fa", "fasta").seq
 
 # Find the offset
-offset = find_offset(genome, "ACTAAGT")
+offset = find_offset(genome, "AGTCGA")
 
-print(f"The offset of the leftmost occurrence of 'ACTAAGT' or its reverse complement in the lambda virus genome is {offset}.")
+print(f"The offset of the leftmost occurrence of 'AGTCGA' or its reverse complement in the lambda virus genome is {offset}.")
