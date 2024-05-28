@@ -1,6 +1,6 @@
-def read_Genome(lambda_virus.fa):
+def read_genome(lambda_virus_fa):
     genome = ''
-    with open(lambda_virus.fa, 'r') as f:
+    with open(lambda_virus_fa, 'r') as f:
         for line in f:
             if not line.startswith('>'):
                 genome += line.rstrip()
@@ -27,7 +27,7 @@ def reverse_Complement(s):
     return t
 
 # Reading the genome from the file
-genome = read_Genome('lambda_virus.fa')
+genome = read_Genome('lambda_virus.fa') # type: ignore
 
 # Define the pattern and the maximum number of mismatches
 pattern = 'AGTCGA'  # Example pattern
