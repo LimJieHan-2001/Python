@@ -45,7 +45,7 @@ def reverse_complement(s):
 genome = read_genome('lambda_virus.fa')
 
 # Define the pattern and the maximum number of mismatches
-pattern = 'AGTCGA'  # Example pattern
+pattern = 'TTCAAGCC'  # Example pattern
 max_mismatches = 2  # Example maximum number of mismatches
 
 # Find occurrences in the genome
