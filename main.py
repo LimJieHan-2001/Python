@@ -20,10 +20,9 @@ async def get_protein_interactions(protein_id: str):
 @app.get("/organism/{organism_id}/proteins")
 async def get_organism_proteins(organism_id: str):
     proteins = list(db.proteins.find({"OrganismID": organism_id}))
-    interactions = list(db.interactions.find(
-    {"$or": [
-        {"Protein1ID": {"$in": [p["ProteinID"] for p in proteins]}},
-        {"Protein2ID": {"$in": [p["ProteinID"] for p in proteins]}}
-    ]}
-))
+    interactions = list(db.interactions.find({"$or": [{"Protein1ID": {"$in": [p["ProteinID"] for p in proteins]}}, {"Protein2ID": {"$in": [p["ProteinID"] for p in proteins]}}]}))
     return {"proteins": proteins, "interactions": interactions}
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app, host='0.0.0.0', port=8000)

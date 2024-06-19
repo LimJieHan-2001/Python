@@ -41,7 +41,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # Train a Random Forest classifier
-clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf = RandomForestClassifier(n_estimators=100, random_state=42, max_depth=5)
 clf.fit(X_train_scaled, y_train)
 
 # Make predictions on the test set
