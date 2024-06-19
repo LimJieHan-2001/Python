@@ -3,7 +3,7 @@ import csv
 
 # Connect to MongoDB
 client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client["lab_x"]
+db = client["DataSample-CaseB"]
 
 # Define collections
 proteins_collection = db["proteins"]
