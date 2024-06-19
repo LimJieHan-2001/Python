@@ -29,11 +29,6 @@ async def get_protein(protein_id: str):
 async def get_protein_interactions(protein_id: str):
     # Search for the interactions by using Protein1ID and Protein2ID in MongoDB
     interactions = list(db.interactions.find({"$or": [{"Protein1ID": protein_id}, {"Protein2ID": protein_id}]}))
-
-    if not interactions:
-        # Raise a 404 error if the ProteinID is not found in any interactions
-        raise HTTPException(status_code=404, detail="Protein not found in any interactions")
-    
     return interactions
 
 @app.get("/organism/{organism_id}/proteins")
@@ -43,16 +38,4 @@ async def get_organism_proteins(organism_id: str):
     # Search for the interactions by using Protein1ID and Protein2ID in MongoDB
     interactions = list(db.interactions.find({"$or": [{"Protein1ID": {"$in": [p["ProteinID"] for p in proteins]}}, {"Protein2ID": {"$in": [p["ProteinID"] for p in proteins]}}]}))
     
-    if not proteins:
-        # Raise a 404 error if the OrganismID is not found in any proteins
-        raise HTTPException(status_code=404, detail="Organism not found")
-    
-    if not interactions:
-        # Raise a 404 error if the OrganismID is not found in any interactions
-        raise HTTPException(status_code=404, detail="Organism not found in any interactions")
-    
     return {"proteins": proteins, "interactions": interactions}
-
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=8000)
